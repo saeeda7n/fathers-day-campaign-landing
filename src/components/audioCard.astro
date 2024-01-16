@@ -44,29 +44,4 @@ const randomId = Math.random().toString(16).replace("0.", "");
     </button>
   </div>
 </div>
-<script>
-  const audios = document.querySelectorAll(".audio-source");
-  if (audios) {
-    audios.forEach((audio) => {
-      const source = audio.querySelector("audio") as any;
-      const playButton = audio.querySelector(".play-toggle") as any;
-      const pauseIcon = audio.querySelector(".pauseIcon") as any;
-      const playIcon = audio.querySelector(".playIcon") as any;
-      source.addEventListener("pause", () => {
-        playIcon.classList.remove("!hidden");
-        pauseIcon.classList.add("!hidden");
-      });
-      source.addEventListener("play", () => {
-        playIcon.classList.add("!hidden");
-        pauseIcon.classList.remove("!hidden");
-      });
-
-      playButton.addEventListener("click", () => {
-        document.querySelectorAll("audio")?.forEach((s) => {
-          s !== source && !s.paused && s.pause();
-        });
-        source?.paused ? source?.play() : source?.pause();
-      });
-    });
-  }
-</script>
+<script></script>

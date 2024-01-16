@@ -130,39 +130,3 @@ import AudioCard from "../components/audioCard.astro";
     </section>
   </Default>
 </HtmlLayout>
-
-<script>
-  let videoSwiper = new Swiper(".video-slider", {
-    spaceBetween: 25,
-    slidesPerGroup: 6,
-    slidesPerView: 6,
-    navigation: {
-      nextEl: ".next",
-      prevEl: ".prev",
-    },
-  });
-
-  let audioSwiper = new Swiper(".audio-slider", {
-    spaceBetween: 25,
-    slidesPerGroup: 4,
-    slidesPerView: 4,
-    navigation: {
-      nextEl: ".next",
-      prevEl: ".prev",
-    },
-  });
-
-  function createVideoFormValidator() {
-    if (typeof createVideoForm === "undefined") return;
-    createVideoForm.addEventListener("change", (e: any) => {
-      const { video, audio } = createVideoForm as any;
-      if ([video.value, audio.value].includes("")) {
-        createVideoButton.disabled = true;
-      } else {
-        createVideoButton.disabled = false;
-      }
-    });
-  }
-
-  createVideoFormValidator();
-</script>
