@@ -93,7 +93,7 @@ const filters = [
   });
   const filters = document.querySelector("[data-filters]");
   filters?.addEventListener("click", (e) => {
-    filters.querySelectorAll("[data-filter]").forEach((filter) => {
+    filters?.querySelectorAll("[data-filter]").forEach((filter) => {
       filter.classList.remove("active");
     });
 
@@ -102,7 +102,7 @@ const filters = [
     const filter = e.target?.getAttribute("data-filter");
     swiper.destroy();
 
-    filters.querySelectorAll("[data-filter-value]").forEach((target) => {
+    filters?.querySelectorAll("[data-filter-value]").forEach((target) => {
       if (filter === "all") {
         target.classList.remove("non-swiper-slide");
         target.classList.remove("hidden-card");
