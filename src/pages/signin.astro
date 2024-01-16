@@ -1,0 +1,60 @@
+---
+import HtmlLayout from "../layouts/htmlLayout.astro";
+import Auth from "../layouts/auth.astro";
+import SendIcon from "../components/icons/sendIcon.astro";
+---
+
+<HtmlLayout>
+  <Auth>
+    <form class="space-y-8" action="/confirm">
+      <div class="space-y-0.5">
+        <h3 class="text-2xl font-semibold">ورود به صفحه روز پدر</h3>
+        <p class="font-light opacity-50">
+          لطفا اطلاعات زیر را با دقت وارد نمایید
+        </p>
+      </div>
+      <div>
+        <label class="flex flex-col gap-1">
+          نام و نام خانوادگی
+          <input
+            placeholder="نام و نام خانوادگی شما"
+            class="flex h-16 items-center rounded-xl border bg-transparent px-5 text-xl"
+          />
+        </label>
+      </div>
+      <div class="grid grid-cols-6 gap-5">
+        <div class="col-span-6 sm:col-span-4">
+          <label class="flex flex-col gap-1">
+            شماره تلفن همراه
+            <input
+              dir="ltr"
+              placeholder="09*********"
+              class="flex h-16 items-center rounded-xl border bg-transparent px-5 pt-1 text-xl"
+            />
+          </label>
+        </div>
+        <div class="col-span-6 sm:col-span-2">
+          <label class="flex flex-col gap-1">
+            <span class="truncate">
+              کد معرف <small class="text-xs font-light">(اختیاری)</small>
+            </span>
+            <input
+              placeholder="1234567"
+              class="flex h-16 items-center rounded-xl border bg-transparent px-5 pt-1 text-xl"
+            />
+          </label>
+        </div>
+      </div>
+      <div>
+        <button
+          class="flex h-16 w-full select-none items-center justify-center gap-4 rounded-xl bg-primary ps-4 text-2xl font-semibold"
+        >
+          ارسال کد تایید
+          <span class="scale-75">
+            <SendIcon />
+          </span>
+        </button>
+      </div>
+    </form>
+  </Auth>
+</HtmlLayout>

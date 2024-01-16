@@ -1,0 +1,63 @@
+---
+export interface Props {
+  len: number;
+  name?: string;
+}
+const { len, name } = Astro.props;
+---
+
+<div
+  data-opt="input"
+  dir="ltr"
+  style={`--opt-len: ${len}`}
+  class="grid grid-cols-[repeat(var(--opt-len),minmax(0,1fr))] gap-5"
+>
+  {
+    new Array(+len)
+      .fill(0)
+      .map((_, index) => (
+        <input
+          maxlength="1"
+          data-index={index}
+          class="flex h-16 items-center justify-center rounded-xl border bg-transparent pt-2 text-center text-3xl font-bold  selection:bg-gray-50 selection:text-gray-900"
+        />
+      ))
+  }
+  <input
+    name={name}
+    data-opt="output"
+    maxlength={len}
+    hidden
+    aria-hidden="true"
+  />
+</div>
+
+<script>
+  //just for 1 OPT input per page
+  const inputs = document.querySelector("[data-opt='input']");
+  const output = document.querySelector("[data-opt='output']");
+  inputs.addEventListener("input", (e) => {
+    const dummyInputs = [...inputs.querySelectorAll("input")].filter(
+      (input) => !!input.getAttribute("data-index"),
+    );
+    const opt = dummyInputs.map((input) => input.value).join("");
+    output.value = opt;
+    const { target } = e;
+    const { value } = target;
+    if (isNaN(value)) {
+      target.value = "";
+      return;
+    }
+    if (value.length) {
+      target.nextElementSibling?.focus();
+    }
+  });
+  inputs.addEventListener("keyup", (e) => {
+    const { target, key } = e;
+    const { value } = target;
+    if (["delete", "backspace"].includes(key.toLowerCase())) {
+      target.previousElementSibling?.focus();
+      target.previousElementSibling?.select();
+    }
+  });
+</script>

@@ -1,0 +1,70 @@
+---
+import CheckedIcon from "./icons/checkedIcon.astro";
+import PlayIcon from "./icons/playIcon.astro";
+import PauseIcon from "./icons/pauseIcon.astro";
+const randomId = Math.random().toString(16).replace("0.", "");
+---
+
+<div class="swiper-slide group relative select-none">
+  <input
+    class="peer absolute -left-2.5 -top-2.5 z-30 flex h-7 w-7 cursor-pointer opacity-0"
+    type="radio"
+    name="audio"
+    value={randomId}
+  />
+  <div
+    class="absolute -left-2.5 -top-2.5 flex h-7 w-7 items-center justify-center rounded-full bg-gray-500 opacity-50 transition-all duration-200 group-hover:bg-gray-500 group-hover:opacity-50 peer-checked:rotate-0 peer-checked:bg-red-600 peer-checked:opacity-100 lg:opacity-0"
+  >
+    <CheckedIcon />
+  </div>
+  <div
+    class="audio-source flex items-center gap-5 overflow-hidden rounded-3xl border-2 border-transparent bg-white/20 px-5 py-3 transition-all duration-200 peer-checked:border-red-600 peer-checked:shadow-xl peer-checked:shadow-red-600/50"
+  >
+    <audio
+      src="https://dl.rozmusic.com/Music/1402/10/26/Novan%20-%20Yadete%20%28128%29.mp3"
+      hidden="hidden"
+      preload="none"></audio>
+    <div class="max-w-52 flex-1 overflow-hidden">
+      <h4 class="overflow-hidden truncate text-lg font-medium">آهنگ شماره 1</h4>
+      <span class="line-clamp-2 overflow-hidden">برای روز پدر</span>
+    </div>
+
+    <span class="mr-auto">2:32</span>
+    <button
+      type="button"
+      class="play-toggle flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border-2"
+      title="Play Button"
+    >
+      <span class="playIcon" role="img">
+        <PlayIcon />
+      </span>
+      <span class="pauseIcon !hidden" role="img">
+        <PauseIcon />
+      </span>
+    </button>
+  </div>
+</div>
+<script>
+  const audios = document.querySelectorAll(".audio-source");
+  audios.forEach((audio) => {
+    const source = audio.querySelector("audio");
+    const playButton = audio.querySelector(".play-toggle");
+    const pauseIcon = audio.querySelector(".pauseIcon");
+    const playIcon = audio.querySelector(".playIcon");
+    source.addEventListener("pause", () => {
+      playIcon.classList.remove("!hidden");
+      pauseIcon.classList.add("!hidden");
+    });
+    source.addEventListener("play", () => {
+      playIcon.classList.add("!hidden");
+      pauseIcon.classList.remove("!hidden");
+    });
+
+    playButton.addEventListener("click", () => {
+      document
+        .querySelectorAll("audio")
+        .forEach((source) => !source.paused && source.pause());
+      source.paused ? source.play() : source.pause();
+    });
+  });
+</script>

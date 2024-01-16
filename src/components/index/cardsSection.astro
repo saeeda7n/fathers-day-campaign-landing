@@ -1,0 +1,127 @@
+---
+import ArrowLeftIcon from "../icons/arrowLeftIcon.astro";
+import PostalCard from "./postalCard.astro";
+
+const filters = [
+  { name: "همه", filter: "all" },
+  { name: "ویدئو", link: "/videos" },
+  { name: "نقاشی", filter: "painting" },
+  { name: "هنری", filter: "artistic" },
+  { name: "عکاسی", filter: "photographic" },
+];
+---
+
+<section class="bg-cetacean-blue py-16">
+  <div class="container space-y-16">
+    <div class="flex flex-col items-center gap-6 text-gray-50">
+      <span class="mb-3 border-b pb-2 text-base font-medium sm:text-xl"
+        >پنجشنبه 5 بهمن 1402</span
+      >
+      <h2 class="text-center text-5xl font-bold sm:text-7xl">روز پدر مبارک</h2>
+      <p class="text-center text-2xl font-medium sm:text-4xl">
+        پـدر؛ نهـایت یک هـمـراهی
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-10 text-gray-50" data-filters>
+      <div class="relative flex flex-wrap items-center justify-between gap-5">
+        <h3 class="text-xl font-semibold sm:text-2xl">
+          کارت پستال های روز پدر
+        </h3>
+        <div
+          class="order-3 flex h-12 w-full items-center rounded-full bg-black/80 px-5 sm:px-16 lg:max-w-lg lg:px-10"
+        >
+          <ul class="flex flex-1 justify-between">
+            {
+              filters.map((item, index) => (
+                <li
+                  class:list={{ active: index === 0 }}
+                  data-filter={item?.filter}
+                  class="filter-items relative flex cursor-pointer select-none items-end justify-center after:absolute after:h-0.5 after:w-0 after:rounded-full after:bg-red-500 after:transition-all after:duration-200 hover:after:w-[calc(100%+1rem)]"
+                >
+                  {item.link ? <a href={item.link}>{item.name}</a> : item.name}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <a
+          href="/createPostCard"
+          class="order-2 flex items-center gap-5 text-base sm:text-xl lg:order-3"
+        >
+          مشاهده بیشتر
+          <ArrowLeftIcon />
+        </a>
+      </div>
+      <div class="swiper post-card-slider w-full">
+        <div class="swiper-wrapper masked">
+          <PostalCard filter="photographic" />
+          <PostalCard filter="artistic" />
+          <PostalCard filter="painting" />
+          <PostalCard filter="photographic" />
+          <PostalCard filter="painting" />
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center text-gray-50">
+      <p class="font-light">
+        شما می توانید بعد از وارد کردن نام پدر خود و نام خودتون یک کارت پستال
+        تبریک روز مادر در سایز اینستاگرام از ما بگیرید
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .filter-items {
+    @apply cursor-pointer after:top-[calc(100%+0.15rem)];
+  }
+
+  .filter-items.active {
+    @apply after:top-[calc(100%+0.15rem)] after:w-full !important;
+  }
+
+  .masked {
+  }
+</style>
+
+<script>
+  let swiper = new Swiper(".post-card-slider", {
+    slidesPerView: "auto",
+    spaceBetween: 30,
+  });
+  const filters = document.querySelector("[data-filters]");
+  filters?.addEventListener("click", (e) => {
+    filters.querySelectorAll("[data-filter]").forEach((filter) => {
+      filter.classList.remove("active");
+    });
+
+    if (!e.target || !e.target?.getAttribute("data-filter")) return;
+    e.target.classList.add("active");
+    const filter = e.target?.getAttribute("data-filter");
+    swiper.destroy();
+
+    filters.querySelectorAll("[data-filter-value]").forEach((target) => {
+      if (filter === "all") {
+        // target.parentNode.style.display = '';
+        target.classList.remove("non-swiper-slide");
+        target.classList.remove("hidden-card");
+        return;
+      }
+      if (filter === target.getAttribute("data-filter-value")) {
+        // target.parentNode.style.display = '';
+        target.classList.remove("non-swiper-slide");
+        target.classList.remove("hidden-card");
+      } else {
+        // target.parentNode.style.display = 'none';
+        target.classList.add("non-swiper-slide");
+        target.classList.add("hidden-card");
+      }
+    });
+    swiper = new Swiper(".mySwiper", {
+      slidesPerView: "auto",
+      spaceBetween: 30,
+    });
+  });
+</script>

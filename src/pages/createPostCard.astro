@@ -1,0 +1,92 @@
+---
+import Default from "../layouts/default.astro";
+import HtmlLayout from "../layouts/htmlLayout.astro";
+import NewIcon from "../components/icons/newIcon.astro";
+import VideoIcon from "../components/icons/videoIcon.astro";
+import DownloadIcon from "../components/icons/downloadIcon.astro";
+import HeartIcon from "../components/icons/heartIcon.astro";
+import ArrowRightIcon from "../components/icons/arrowRightIcon.astro";
+---
+
+<HtmlLayout>
+  <Default>
+    <section class="flex pb-16 pt-36 text-gray-50">
+      <div class="container flex flex-col gap-16">
+        <div class="flex items-center justify-center">
+          <a
+            href="/"
+            class="ml-auto flex h-10 w-10 items-center justify-center rounded-xl bg-white/20"
+          >
+            <ArrowRightIcon />
+          </a>
+
+          <div class="ml-auto flex items-center gap-10">
+            <a
+              href="/createPostCard"
+              class="active-page flex h-16 items-center justify-center gap-2 rounded-full bg-white/20 px-5 text-lg font-semibold"
+            >
+              <NewIcon />
+              ساخت کارت پستال</a
+            >
+            <a
+              href="/createVideo"
+              class="flex h-16 items-center justify-center gap-2 rounded-full bg-white/20 px-5 text-lg font-semibold"
+            >
+              <VideoIcon />
+              ساخت ویدئو
+            </a>
+          </div>
+        </div>
+        <div
+          class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:gap-8"
+        >
+          {
+            new Array(15).fill(0).map(() => (
+              <div class="mx-auto flex max-w-96 select-none flex-col gap-3 rounded-[2rem] border p-4 lg:p-5">
+                <img
+                  src="/images/post-card-image.jpeg"
+                  alt="Post card image"
+                  class=" w-full rounded-3xl object-cover object-center"
+                />
+                <div class="flex items-center justify-between">
+                  <span class="overflow-hidden truncate">
+                    <b>مدل:</b>
+                    نقاشی
+                  </span>
+                  <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-1">
+                      <div class="scale-75">
+                        <HeartIcon />
+                      </div>
+                      <span class="pt-1">20</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <div class="scale-75">
+                        <DownloadIcon />
+                      </div>
+                      <span class="pt-1">10</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="h-0.5 bg-gray-50/50" />
+                <div class="flex gap-5">
+                  <a
+                    href="#"
+                    class="flex h-16 flex-1 items-center justify-center rounded-xl rounded-br-3xl border-2 bg-transparent text-gray-50 transition-all duration-300 hover:border-primary hover:bg-primary"
+                  >
+                    تایید و مرحله بعد
+                  </a>
+                  <button class="flex h-16 w-16 items-center justify-center rounded-xl rounded-bl-3xl border">
+                    <span class="scale-125">
+                      <HeartIcon />
+                    </span>
+                  </button>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </Default>
+</HtmlLayout>

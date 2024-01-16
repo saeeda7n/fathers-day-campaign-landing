@@ -1,0 +1,111 @@
+---
+import CtIcon from "../icons/ctIcon.astro";
+import GiftIcon from "../icons/giftIcon.astro";
+import ClipboardIcon from "../icons/clipboardIcon.astro";
+import WinnersList from "./winnersList.astro";
+import PlusIcon from "../icons/plusIcon.astro";
+---
+
+<section class="mystery-section py-16">
+  <div class="container flex flex-col gap-8 lg:flex-row">
+    <div class="flex flex-1 flex-col gap-4 text-gray-50">
+      <h3 class="text-xl font-semibold sm:text-2xl">شانست رو امتحان کن</h3>
+      <ul class="mr-5 list-disc text-base sm:text-lg">
+        <li>
+          با انتخاب 3 جعبه علامت سوال، اعتبار سی تی بُن خودت رو افزایش بده
+        </li>
+        <li>
+          شما می‌توانید با دعوت از دوستان خود شانس‌تان را بیشتر کنید. (هر دعوت
+          یک شانس!!!)
+        </li>
+      </ul>
+
+      <div class="mb-5 flex items-center gap-3">
+        <span>کد عضویت شما</span>
+        <button
+          id="copyReferalCode"
+          data-code="referal-code-here-123456"
+          class="flex h-10 items-center gap-2 rounded-full bg-white/20 px-5 text-lg"
+        >
+          <span class="pt-1">123456</span>
+          <ClipboardIcon />
+        </button>
+      </div>
+
+      <div class="mt-auto flex flex-col gap-2">
+        <p>لیست برندگان ( بیشترین دریافت سی تی بن )</p>
+        <WinnersList />
+      </div>
+    </div>
+
+    <div class="relative mx-auto flex flex-1 flex-col items-end gap-2 lg:mx-0">
+      <div class="z-50 flex gap-4">
+        <div
+          class="flex h-10 items-center gap-2 rounded-full bg-neutral-900 pr-5 text-xl text-white"
+        >
+          <span>بُن 23,333</span>
+          <div
+            class="icon-background flex aspect-square h-full items-center justify-center rounded-full"
+          >
+            <CtIcon />
+          </div>
+        </div>
+        <div
+          class="flex h-10 items-center gap-2 rounded-full bg-neutral-900 pr-5 text-xl text-white"
+        >
+          <PlusIcon />
+          <span>امتیاز</span>
+          <div
+            class="icon-background flex aspect-square h-full items-center justify-center rounded-full"
+          >
+            <GiftIcon />
+          </div>
+        </div>
+      </div>
+      <div class="relative max-w-[542px]">
+        <img
+          src="/images/game-border.png"
+          class="game-border h-auto w-full"
+          alt="game border"
+        />
+        <div class="absolute inset-0 grid grid-cols-4 gap-1 px-5 py-5">
+          {
+            new Array(16)
+              .fill(0)
+              .map(() => (
+                <img src="/images/mystery-box.png" alt="mystery box" />
+              ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .mystery-section {
+    background: radial-gradient(
+      77.2% 164.08% at 28.21% 47.17%,
+      #255ec2 0%,
+      #1b2262 100%
+    );
+  }
+
+  .icon-background {
+    background: linear-gradient(212.47deg, #ffd600 11.46%, #bb7b00 86.42%);
+  }
+
+  .game-border {
+    filter: drop-shadow(-20px 20px 50px black);
+  }
+</style>
+
+<script>
+  if (typeof copyReferalCode !== "undefined") {
+    copyReferalCode.addEventListener("click", (e) => {
+      const code = copyReferalCode.getAttribute("data-code");
+      navigator.clipboard.writeText(code);
+      alert("کد زیر مجموعه گیری با موفقیت کپی شد");
+    });
+  }
+</script>

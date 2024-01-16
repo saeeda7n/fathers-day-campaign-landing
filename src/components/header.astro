@@ -1,0 +1,26 @@
+---
+const items = ["خانه", "کارت پستال", "ساخت ویدئو", "تماس با ما"];
+---
+
+<header
+  class="fixed inset-0 bottom-auto z-50 z-[9999] flex h-16 items-center bg-gray-50/50 px-2 backdrop-blur sm:h-20 md:px-8 lg:px-16"
+>
+  <img src="/images/logo.png" alt="CTelecom logo" class="hidden h-7 md:block" />
+  <ul
+    class="text-blue-dark bottom-auto mr-auto flex gap-5 text-xs md:text-base"
+  >
+    {
+      items.map((item) => (
+        <li class="nav-items relative flex items-end justify-center after:absolute after:h-1 after:w-0 after:rounded-full after:bg-red-500 after:transition-all after:duration-200 hover:after:w-full">
+          <a href="#">{item}</a>
+        </li>
+      ))
+    }
+  </ul>
+</header>
+
+<style>
+  .nav-items {
+    @apply after:top-[calc(100%+0.25rem)];
+  }
+</style>

@@ -1,0 +1,42 @@
+---
+
+---
+
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="/css/fontiran.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <title>Astro</title>
+  </head>
+  <body class="overflow-x-hidden bg-cetacean-blue font-kalameh">
+    <slot />
+  </body>
+
+  <script
+    is:inline
+    src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script></script>
+</html>
+
+<style is:global>
+  .active-page {
+    @apply bg-primary text-gray-50 !important;
+  }
+
+  .swiper-button-disabled {
+    @apply opacity-50 !important;
+  }
+
+  .apply {
+    @apply !hidden;
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+import HeartIcon from "../icons/heartIcon.astro";
+import DownloadIcon from "../icons/downloadIcon.astro";
+export interface Props {
+  filter: string;
+}
+const { filter } = Astro.props;
+---
+
+<div
+  class="swiper-slide flex w-64 select-none flex-col gap-3 rounded-[2rem] border p-4 lg:w-[315px] lg:p-5"
+  data-filter-value={filter}
+>
+  <img
+    src="/images/post-card-image.jpeg"
+    alt="Post card image"
+    class="aspect-[10/12] w-full rounded-3xl object-cover object-center"
+  />
+  <div class="flex items-center justify-between">
+    <span class="overflow-hidden truncate">
+      <b>مدل:</b>
+      نقاشی {filter}
+    </span>
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-1">
+        <div class="scale-75">
+          <HeartIcon />
+        </div>
+        <span class="pt-1">20</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <div class="scale-75">
+          <DownloadIcon />
+        </div>
+        <span class="pt-1">10</span>
+      </div>
+    </div>
+  </div>
+  <div class="h-0.5 bg-gray-50/50"></div>
+  <div class="flex gap-5">
+    <a
+      href="#"
+      class="flex h-16 flex-1 items-center justify-center rounded-xl rounded-br-3xl bg-primary text-gray-50"
+      >تایید و مرحله بعد</a
+    >
+    <button
+      class="flex h-16 w-16 items-center justify-center rounded-xl rounded-bl-3xl border"
+    >
+      <span class="scale-125">
+        <HeartIcon />
+      </span>
+    </button>
+  </div>
+</div>
+<style>
+  .hidden-card {
+    @apply hidden !important;
+  }
+</style>
