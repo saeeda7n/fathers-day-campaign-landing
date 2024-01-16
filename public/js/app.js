@@ -1,4 +1,5 @@
 window.addEventListener("load", () => {
+  gsap.registerPlugin(ScrollTrigger);
   const lenis = new Lenis();
 
   function raf(time) {
@@ -227,7 +228,6 @@ window.addEventListener("load", () => {
 });
 
 function gsapAnimation() {
-  gsap.registerPlugin(ScrollTrigger);
   const duration = 2;
   const ease = "";
   gsap
