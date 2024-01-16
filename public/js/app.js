@@ -239,6 +239,12 @@ function gsapAnimation() {
         pinSpacing: true,
       },
     })
+    .fromTo(
+      "#header",
+      { opacity: 0, backgroundColor: "rgba(0,0,0,0.2)" },
+      { opacity: 1, duration, backgroundColor: "rgba(255,255,255,0.5)" },
+      0,
+    )
     .to(".ct-welcome", { opacity: 0, duration: 0.2 }, 0)
     .fromTo(
       ".father-and-child",
