@@ -235,15 +235,14 @@ function gsapAnimation() {
       scrollTrigger: {
         pin: true,
         trigger: ".hero-section",
-        markers: true,
         scrub: 1,
         pinSpacing: true,
       },
     })
-    .to(".ct-welcome", { opacity: 0 }, 0)
+    .to(".ct-welcome", { opacity: 0, duration: 0.2 }, 0)
     .fromTo(
       ".father-and-child",
-      { scale: 30 },
+      { scale: 40 },
       {
         ease,
         scale: 1,
