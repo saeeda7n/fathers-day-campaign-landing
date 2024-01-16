@@ -42,11 +42,11 @@ import ArrowRightIcon from "../components/icons/arrowRightIcon.astro";
         >
           {
             new Array(15).fill(0).map(() => (
-              <div class="mx-auto flex max-w-96 select-none flex-col gap-3 rounded-[2rem] border p-4 lg:p-5">
+              <div class="mx-auto flex min-w-full max-w-96 select-none flex-col gap-3 rounded-[2rem] border p-4 lg:p-5">
                 <img
                   src="/images/post-card-image.jpeg"
                   alt="Post card image"
-                  class=" w-full rounded-3xl object-cover object-center"
+                  class="aspect-[10/12] w-full rounded-3xl object-cover object-center"
                 />
                 <div class="flex items-center justify-between">
                   <span class="overflow-hidden truncate">

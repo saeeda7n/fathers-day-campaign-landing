@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
   });
   const filters = document.querySelector("[data-filters]");
   filters?.addEventListener("click", (e) => {
-    filters?.querySelectorAll("[data-filter]").forEach((filter) => {
+    filters.querySelectorAll("[data-filter]").forEach((filter) => {
       filter.classList.remove("active");
     });
 
@@ -14,7 +14,7 @@ window.addEventListener("load", () => {
     const filter = e.target?.getAttribute("data-filter");
     swiper.destroy();
 
-    filters?.querySelectorAll("[data-filter-value]").forEach((target) => {
+    filters.querySelectorAll("[data-filter-value]").forEach((target) => {
       if (filter === "all") {
         target.classList.remove("non-swiper-slide");
         target.classList.remove("hidden-card");
@@ -41,6 +41,26 @@ window.addEventListener("load", () => {
     navigation: {
       nextEl: ".next",
       prevEl: ".prev",
+    },
+    0: {
+      spaceBetween: 15,
+      slidesPerGroup: 1,
+      slidesPerView: 1,
+    },
+    640: {
+      spaceBetween: 15,
+      slidesPerGroup: 2,
+      slidesPerView: 2,
+    },
+    940: {
+      spaceBetween: 15,
+      slidesPerGroup: 3,
+      slidesPerView: 3,
+    },
+    1124: {
+      spaceBetween: 25,
+      slidesPerGroup: 6,
+      slidesPerView: 6,
     },
   });
 
