@@ -36,7 +36,7 @@ const { len, name } = Astro.props;
   //just for 1 OPT input per page
   const inputs = document.querySelector("[data-opt='input']");
   const output = document.querySelector("[data-opt='output']");
-  inputs.addEventListener("input", (e) => {
+  inputs.addEventListener("input", (e: any) => {
     const dummyInputs = [...inputs.querySelectorAll("input")].filter(
       (input) => !!input.getAttribute("data-index"),
     );
@@ -52,7 +52,7 @@ const { len, name } = Astro.props;
       target.nextElementSibling?.focus();
     }
   });
-  inputs.addEventListener("keyup", (e) => {
+  inputs.addEventListener("keyup", (e: any) => {
     const { target, key } = e;
     const { value } = target;
     if (["delete", "backspace"].includes(key.toLowerCase())) {
