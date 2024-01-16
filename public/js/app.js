@@ -1,4 +1,12 @@
 window.addEventListener("load", () => {
+  const lenis = new Lenis();
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
   let swiper = new Swiper(".post-card-slider", {
     slidesPerView: "auto",
     spaceBetween: 30,
@@ -211,4 +219,6 @@ window.addEventListener("load", () => {
       });
     });
   }
+
+  console.log("Windows Ready");
 });

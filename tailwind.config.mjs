@@ -13,7 +13,7 @@ export default {
       maxWidth: {
         "26r": "26rem"
       },
-      rounded: {
+      borderRadius: {
         "2r": "2rem"
       },
       fontFamily: {
