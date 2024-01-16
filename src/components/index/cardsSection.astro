@@ -37,7 +37,7 @@ const filters = [
                 <li
                   class:list={{ active: index === 0 }}
                   data-filter={item?.filter}
-                  class="filter-items relative flex cursor-pointer select-none items-end justify-center after:absolute after:h-0.5 after:w-0 after:rounded-full after:bg-red-500 after:transition-all after:duration-200 hover:after:w-[calc(100%+1rem)]"
+                  class="filter-items relative flex cursor-pointer select-none items-end justify-center text-sm after:absolute after:h-0.5 after:w-0 after:rounded-full after:bg-red-500 after:transition-all after:duration-200 sm:text-base "
                 >
                   {item.link ? <a href={item.link}>{item.name}</a> : item.name}
                 </li>
@@ -75,7 +75,7 @@ const filters = [
 
 <style>
   .filter-items {
-    @apply cursor-pointer after:top-[calc(100%+0.15rem)];
+    @apply cursor-pointer after:top-[calc(100%+0.15rem)] hover:after:w-[calc(100%+1rem)];
   }
 
   .filter-items.active {

@@ -167,11 +167,13 @@ window.addEventListener("load", () => {
       const durationPlaceholder = audio.querySelector(".track-duration");
       source.addEventListener("timeupdate", (e) => {
         const { duration, currentTime } = e.target;
+
         function addZero(input) {
-          return input > 9 ? input : "0" + input;
+          return input > 9 ? input : `0${input}`;
         }
-        const sec = (currentTime % 59).toFixed(0);
-        const min = Math.floor(currentTime / 60).toFixed(0);
+
+        const sec = Math.floor(currentTime % 60);
+        const min = Math.floor(currentTime / 60);
         durationPlaceholder.innerText = `${addZero(min)}:${addZero(sec)}`;
       });
       source.addEventListener("pause", () => {
@@ -188,7 +190,11 @@ window.addEventListener("load", () => {
         document.querySelectorAll("audio")?.forEach((s) => {
           s !== source && !s.paused && s.pause();
         });
-        source?.paused ? source?.play() : source?.pause();
+        try {
+          source.paused ? source.play() : source.pause();
+        } catch (e) {
+          console.log(e);
+        }
       });
     });
   }
