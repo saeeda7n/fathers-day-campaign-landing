@@ -164,9 +164,20 @@ window.addEventListener("load", () => {
       const playButton = audio.querySelector(".play-toggle");
       const pauseIcon = audio.querySelector(".pauseIcon");
       const playIcon = audio.querySelector(".playIcon");
+      const durationPlaceholder = audio.querySelector(".track-duration");
+      source.addEventListener("timeupdate", (e) => {
+        const { duration, currentTime } = e.target;
+        function addZero(input) {
+          return input > 9 ? input : "0" + input;
+        }
+        const sec = (currentTime % 59).toFixed(0);
+        const min = Math.floor(currentTime / 60).toFixed(0);
+        durationPlaceholder.innerText = `${addZero(min)}:${addZero(sec)}`;
+      });
       source.addEventListener("pause", () => {
         playIcon.classList.remove("!hidden");
         pauseIcon.classList.add("!hidden");
+        durationPlaceholder.innerText = "";
       });
       source.addEventListener("play", () => {
         playIcon.classList.add("!hidden");
