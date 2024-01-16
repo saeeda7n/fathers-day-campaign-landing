@@ -102,7 +102,7 @@ import PlusIcon from "../icons/plusIcon.astro";
 
 <script>
   if (typeof copyReferalCode !== "undefined") {
-    copyReferalCode.addEventListener("click", (e) => {
+    copyReferalCode.addEventListener("click", (e: any) => {
       const code = copyReferalCode.getAttribute("data-code");
       navigator.clipboard.writeText(code);
       alert("کد زیر مجموعه گیری با موفقیت کپی شد");

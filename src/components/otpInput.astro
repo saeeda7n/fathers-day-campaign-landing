@@ -34,30 +34,32 @@ const { len, name } = Astro.props;
 
 <script>
   //just for 1 OPT input per page
-  const inputs = document.querySelector("[data-opt='input']");
-  const output = document.querySelector("[data-opt='output']");
-  inputs.addEventListener("input", (e: any) => {
-    const dummyInputs = [...inputs.querySelectorAll("input")].filter(
-      (input) => !!input.getAttribute("data-index"),
-    );
-    const opt = dummyInputs.map((input) => input.value).join("");
-    output.value = opt;
-    const { target } = e;
-    const { value } = target;
-    if (isNaN(value)) {
-      target.value = "";
-      return;
-    }
-    if (value.length) {
-      target.nextElementSibling?.focus();
-    }
-  });
-  inputs.addEventListener("keyup", (e: any) => {
-    const { target, key } = e;
-    const { value } = target;
-    if (["delete", "backspace"].includes(key.toLowerCase())) {
-      target.previousElementSibling?.focus();
-      target.previousElementSibling?.select();
-    }
-  });
+  const inputs = document.querySelector("[data-opt='input']") as any;
+  const output = document.querySelector("[data-opt='output']") as any;
+  if (typeof inputs !== "undefined") {
+    inputs.addEventListener("input", (e: any) => {
+      const dummyInputs = [...inputs.querySelectorAll("input")].filter(
+        (input) => !!input.getAttribute("data-index"),
+      );
+      const opt = dummyInputs.map((input) => input.value).join("");
+      output.value = opt;
+      const { target } = e;
+      const { value } = target;
+      if (isNaN(value)) {
+        target.value = "";
+        return;
+      }
+      if (value.length) {
+        target.nextElementSibling?.focus();
+      }
+    });
+    inputs.addEventListener("keyup", (e: any) => {
+      const { target, key } = e;
+      const { value } = target;
+      if (["delete", "backspace"].includes(key.toLowerCase())) {
+        target.previousElementSibling?.focus();
+        target.previousElementSibling?.select();
+      }
+    });
+  }
 </script>
