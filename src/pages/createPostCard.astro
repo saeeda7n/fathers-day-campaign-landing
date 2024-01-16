@@ -10,9 +10,9 @@ import ArrowRightIcon from "../components/icons/arrowRightIcon.astro";
 
 <HtmlLayout>
   <Default>
-    <section class="flex pb-16 pt-36 text-gray-50">
-      <div class="container flex flex-col gap-16">
-        <div class="flex items-center justify-center">
+    <section class="flex pb-16 pt-20 text-gray-50 sm:pt-36">
+      <div class="container flex flex-col gap-8 sm:gap-16">
+        <div class="flex flex-wrap items-center justify-center gap-4">
           <a
             href="/"
             class="ml-auto flex h-10 w-10 items-center justify-center rounded-xl bg-white/20"
@@ -20,17 +20,19 @@ import ArrowRightIcon from "../components/icons/arrowRightIcon.astro";
             <ArrowRightIcon />
           </a>
 
-          <div class="ml-auto flex items-center gap-10">
+          <div
+            class="flex flex-wrap items-center justify-center gap-5 sm:ml-auto sm:gap-10"
+          >
             <a
               href="/createPostCard"
-              class="active-page flex h-16 items-center justify-center gap-2 rounded-full bg-white/20 px-5 text-lg font-semibold"
+              class="active-page flex h-12 items-center justify-center gap-2 rounded-full bg-white/20 px-5 font-semibold sm:h-16 sm:text-lg"
             >
               <NewIcon />
               ساخت کارت پستال</a
             >
             <a
               href="/createVideo"
-              class="flex h-16 items-center justify-center gap-2 rounded-full bg-white/20 px-5 text-lg font-semibold"
+              class="flex h-12 items-center justify-center gap-2 rounded-full bg-white/20 px-5 font-semibold sm:h-16 sm:text-lg"
             >
               <VideoIcon />
               ساخت ویدئو

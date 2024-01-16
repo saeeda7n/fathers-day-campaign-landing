@@ -42,25 +42,32 @@ window.addEventListener("load", () => {
       nextEl: ".next",
       prevEl: ".prev",
     },
-    0: {
-      spaceBetween: 15,
-      slidesPerGroup: 1,
-      slidesPerView: 1,
-    },
-    640: {
-      spaceBetween: 15,
-      slidesPerGroup: 2,
-      slidesPerView: 2,
-    },
-    940: {
-      spaceBetween: 15,
-      slidesPerGroup: 3,
-      slidesPerView: 3,
-    },
-    1124: {
-      spaceBetween: 25,
-      slidesPerGroup: 6,
-      slidesPerView: 6,
+    breakpoints: {
+      0: {
+        spaceBetween: 15,
+        slidesPerGroup: 2,
+        slidesPerView: 2,
+      },
+      640: {
+        spaceBetween: 15,
+        slidesPerGroup: 3,
+        slidesPerView: 3,
+      },
+      940: {
+        spaceBetween: 15,
+        slidesPerGroup: 4,
+        slidesPerView: 4,
+      },
+      1024: {
+        spaceBetween: 25,
+        slidesPerGroup: 5,
+        slidesPerView: 5,
+      },
+      1224: {
+        spaceBetween: 25,
+        slidesPerGroup: 6,
+        slidesPerView: 6,
+      },
     },
   });
 
