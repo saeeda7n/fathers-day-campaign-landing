@@ -61,9 +61,9 @@ const randomId = Math.random().toString(16).replace("0.", "");
     });
 
     playButton.addEventListener("click", () => {
-      document
-        .querySelectorAll("audio")
-        .forEach((source) => !source.paused && source.pause());
+      document.querySelectorAll("audio").forEach((s) => {
+        s !== source && !s.paused && s.pause();
+      });
       source.paused ? source.play() : source.pause();
     });
   });

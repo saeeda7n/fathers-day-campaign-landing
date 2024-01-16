@@ -12,7 +12,11 @@ import AudioCard from "../components/audioCard.astro";
 <HtmlLayout>
   <Default>
     <section class="flex pb-16 pt-36 text-gray-50">
-      <form class="container flex flex-col gap-16" id="createVideoForm">
+      <form
+        action="/editCard"
+        class="container flex flex-col gap-16"
+        id="createVideoForm"
+      >
         <div class="flex items-center justify-center">
           <a
             href="/"
@@ -66,6 +70,13 @@ import AudioCard from "../components/audioCard.astro";
             <div class="swiper-wrapper">
               <VideoThumbnailCard />
               <VideoThumbnailCard />
+              <VideoThumbnailCard />
+              <VideoThumbnailCard />
+              <VideoThumbnailCard />
+              <VideoThumbnailCard />
+              <VideoThumbnailCard />
+              <VideoThumbnailCard />
+              <VideoThumbnailCard />
             </div>
           </div>
         </div>
@@ -96,6 +107,12 @@ import AudioCard from "../components/audioCard.astro";
             <div class="swiper-wrapper">
               <AudioCard />
               <AudioCard />
+              <AudioCard />
+              <AudioCard />
+              <AudioCard />
+              <AudioCard />
+              <AudioCard />
+              <AudioCard />
             </div>
           </div>
         </div>
@@ -104,7 +121,7 @@ import AudioCard from "../components/audioCard.astro";
             disabled
             type="submit"
             id="createVideoButton"
-            class="mr-auto flex h-16 min-w-72 items-center justify-center rounded-2xl bg-primary px-10 text-xl disabled:opacity-50"
+            class="mr-auto flex h-16 min-w-72 items-center justify-center rounded-2xl bg-primary px-10 text-xl disabled:bg-white/20 disabled:opacity-50"
           >
             تایید و مرحله بعد
           </button>
@@ -137,8 +154,8 @@ import AudioCard from "../components/audioCard.astro";
 
   function createVideoFormValidator() {
     if (typeof createVideoForm === "undefined") return;
-    createVideoForm.addEventListener("change", (e) => {
-      const { video, audio } = createVideoForm;
+    createVideoForm.addEventListener("change", (e: any) => {
+      const { video, audio } = createVideoForm as any;
       if ([video.value, audio.value].includes("")) {
         createVideoButton.disabled = true;
       } else {

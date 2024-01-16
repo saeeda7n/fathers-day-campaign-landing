@@ -104,7 +104,6 @@ const filters = [
 
     filters.querySelectorAll("[data-filter-value]").forEach((target) => {
       if (filter === "all") {
-        // target.parentNode.style.display = '';
         target.classList.remove("non-swiper-slide");
         target.classList.remove("hidden-card");
         return;
@@ -119,7 +118,7 @@ const filters = [
         target.classList.add("hidden-card");
       }
     });
-    swiper = new Swiper(".mySwiper", {
+    swiper = new Swiper(".post-card-slider", {
       slidesPerView: "auto",
       spaceBetween: 30,
     });
