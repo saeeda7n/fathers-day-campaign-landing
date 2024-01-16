@@ -219,6 +219,125 @@ window.addEventListener("load", () => {
       });
     });
   }
+  gsapAnimation();
 
-  console.log("Windows Ready");
+  const loading = document.getElementById("loading");
+  loading.classList.remove("bg-black");
+  loading.querySelector(".loading-text").style.opacity = "0";
 });
+
+function gsapAnimation() {
+  gsap.registerPlugin(ScrollTrigger);
+  const duration = 2;
+  const ease = "";
+  gsap
+    .timeline({
+      scrollTrigger: {
+        pin: true,
+        trigger: ".hero-section",
+        markers: true,
+        scrub: 1,
+        pinSpacing: true,
+      },
+    })
+    .to(".ct-welcome", { opacity: 0 }, 0)
+    .fromTo(
+      ".father-and-child",
+      { scale: 30 },
+      {
+        ease,
+        scale: 1,
+        duration,
+        transformOrigin: "30% 25%",
+      },
+      0,
+    )
+    .fromTo(
+      ".moon",
+      { yPercent: 100 },
+      {
+        yPercent: 0,
+        duration,
+        ease,
+      },
+      0,
+    )
+    .fromTo(
+      ".cloud",
+      { xPercent: -100 },
+      {
+        xPercent: 0,
+        duration,
+        ease,
+      },
+      0,
+    )
+    .fromTo(
+      ".foreground",
+      { scale: 1.5 },
+      {
+        scale: 1,
+        duration,
+        transformOrigin: "bottom center",
+        ease,
+      },
+      0,
+    )
+    .fromTo(
+      ".background",
+      { yPercent: -40, scale: 2 },
+      {
+        yPercent: 0,
+        duration,
+        scale: 1,
+        transformOrigin: "center center",
+        ease,
+      },
+      0,
+    )
+    .fromTo(
+      ".cloud-up-to-bottom",
+      { xPercent: -100, yPercent: -100 },
+      {
+        duration,
+        xPercent: 0,
+        yPercent: 0,
+        ease,
+      },
+      0,
+    )
+    .fromTo(
+      ".cloud-3",
+      { xPercent: -100 },
+      {
+        xPercent: 0,
+        duration,
+        ease,
+      },
+      0,
+    )
+    .fromTo(
+      ".cloud-reverse",
+      { xPercent: 100, yPercent: -100 },
+      {
+        xPercent: 0,
+        yPercent: 0,
+        duration,
+        ease,
+        transformOrigin: "center center",
+      },
+      0,
+    )
+    .fromTo(
+      ".cloud-right-to-bottom",
+      { xPercent: 30, yPercent: 30 },
+      {
+        xPercent: 0,
+        yPercent: 0,
+        duration,
+        ease,
+        transformOrigin: "center center",
+      },
+      0,
+    );
+}
