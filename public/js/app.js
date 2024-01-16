@@ -228,6 +228,7 @@ window.addEventListener("load", () => {
 });
 
 function gsapAnimation() {
+  if (!document.getElementById("loading")) return;
   const duration = 2;
   const ease = "";
   gsap
