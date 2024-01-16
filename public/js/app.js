@@ -162,6 +162,9 @@ window.addEventListener("load", () => {
     audios.forEach((audio) => {
       const source = audio.querySelector("audio");
       const playButton = audio.querySelector(".play-toggle");
+      const fullDurationPlaceholder = audio.querySelector(".full-duration");
+      const currentTimePlaceholder = audio.querySelector(".current-time");
+      const progress = audio.querySelector(".progress");
       const pauseIcon = audio.querySelector(".pauseIcon");
       const playIcon = audio.querySelector(".playIcon");
       const durationPlaceholder = audio.querySelector(".track-duration");
@@ -174,12 +177,22 @@ window.addEventListener("load", () => {
 
         const sec = Math.floor(currentTime % 60);
         const min = Math.floor(currentTime / 60);
-        durationPlaceholder.innerText = `${addZero(min)}:${addZero(sec)}`;
+        if (durationPlaceholder)
+          durationPlaceholder.innerText = `${addZero(min)}:${addZero(sec)}`;
+        if (progress) {
+          progress.style.width = `${(currentTime / duration) * 100}%`;
+        }
+        if (currentTimePlaceholder) {
+          currentTimePlaceholder.innerText = `${addZero(min)}:${addZero(sec)}`;
+        }
+        if (fullDurationPlaceholder) {
+          fullDurationPlaceholder.innerText = `${addZero(Math.floor(duration / 60))}:${addZero(Math.floor(duration % 60))}`;
+        }
       });
       source.addEventListener("pause", () => {
         playIcon.classList.remove("!hidden");
         pauseIcon.classList.add("!hidden");
-        durationPlaceholder.innerText = "";
+        if (durationPlaceholder) durationPlaceholder.innerText = "";
       });
       source.addEventListener("play", () => {
         playIcon.classList.add("!hidden");

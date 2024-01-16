@@ -43,7 +43,10 @@ import PlusIcon from "../icons/plusIcon.astro";
         <div
           class="flex h-8 items-center gap-2 rounded-full bg-neutral-900 pr-5 text-base text-white sm:h-10 sm:text-xl"
         >
-          <span>بُن 23,333</span>
+          <div class="flex gap-0.5">
+            <span>بن</span>
+            <span id="rewards">000</span>
+          </div>
           <div
             class="icon-background flex aspect-square h-full items-center justify-center rounded-full"
           >
@@ -64,7 +67,7 @@ import PlusIcon from "../icons/plusIcon.astro";
           </div>
         </div>
       </div>
-      <div class="relative max-w-[542px]">
+      <div class="relative max-w-[542px]" style="max-width: 542px">
         <img
           src="/images/game-border.png"
           class="game-border aspect-square w-full"
@@ -78,7 +81,7 @@ import PlusIcon from "../icons/plusIcon.astro";
                 <img
                   src="/images/mystery-box.png"
                   alt="mystery box"
-                  class="mystery-box absolute z-50"
+                  class="mystery-box absolute cursor-pointer z-50"
                   draggable="false"
                 />
                 <img

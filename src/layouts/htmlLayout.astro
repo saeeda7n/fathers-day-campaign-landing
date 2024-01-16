@@ -3,6 +3,7 @@
 ---
 
 <html lang="fa" dir="rtl">
+  <!--Add .hidden to apply display: none; to any element-->
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -14,24 +15,6 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
 
-    <link rel="preload" as="image" href="/images/hero/moon.png" />
-    <link rel="preload" as="image" href="/images/hero/starts.png" />
-    <link rel="preload" as="image" href="/images/hero/background.png" />
-    <link rel="preload" as="image" href="/images/hero/foreground.png" />
-    <link rel="preload" as="image" href="/images/hero/father-and-child.png" />
-    <link
-      rel="preload"
-      as="image"
-      href="/images/hero/clouds/cloud-reverse.png"
-    />
-    <link
-      rel="preload"
-      as="image"
-      href="/images/hero/clouds/cloud-up-to-bottom.png"
-    />
-    <link rel="preload" as="image" href="/images/hero/clouds/cloud-3.png" />
-    <link rel="preload" as="image" href="/images/hero/clouds/cloud.png" />
-
     <title>Astro</title>
   </head>
   <body class="overflow-x-hidden bg-cetacean-blue font-kalameh">
@@ -41,6 +24,11 @@
   <script
     is:inline
     src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"
+  ></script>
   <script is:inline src="/js/app.js"></script>
   <script is:inline src="/js/mystery.js"></script>
 </html>

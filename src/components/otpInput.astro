@@ -10,7 +10,7 @@ const { len, name } = Astro.props;
   data-opt="input"
   dir="ltr"
   style={`--opt-len: ${len}`}
-  class="grid grid-cols-[repeat(var(--opt-len),minmax(0,1fr))] gap-5"
+  class="otp-grid grid gap-5"
 >
   {
     new Array(+len)
@@ -31,3 +31,8 @@ const { len, name } = Astro.props;
     aria-hidden="true"
   />
 </div>
+<style>
+  .otp-grid {
+    @apply grid-cols-[repeat(var(--opt-len),minmax(0,1fr))];
+  }
+</style>

@@ -8,13 +8,13 @@ const { filter } = Astro.props;
 ---
 
 <div
-  class="swiper-slide flex w-64 select-none flex-col gap-3 rounded-[2rem] border p-4 lg:w-[315px] lg:p-5"
+  class="swiper-slide rounded-2r flex w-64 select-none flex-col gap-3 border p-4 lg:w-[315px] lg:p-5"
   data-filter-value={filter}
 >
   <img
     src="/images/post-card-image.jpeg"
     alt="Post card image"
-    class="aspect-[10/12] w-full rounded-3xl object-cover object-center"
+    class="image-aspect w-full rounded-3xl object-cover object-center"
   />
   <div class="flex items-center justify-between">
     <span class="overflow-hidden truncate">
@@ -39,7 +39,7 @@ const { filter } = Astro.props;
   <div class="h-0.5 bg-gray-50/50"></div>
   <div class="flex gap-5">
     <a
-      href="#"
+      href="/editCard?image_id=IMAGE_ID"
       class="flex h-16 flex-1 items-center justify-center rounded-xl rounded-br-3xl bg-primary text-gray-50"
       >تایید و مرحله بعد</a
     >
@@ -55,5 +55,9 @@ const { filter } = Astro.props;
 <style>
   .hidden-card {
     @apply hidden !important;
+  }
+
+  .image-aspect {
+    @apply aspect-[10/12];
   }
 </style>

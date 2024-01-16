@@ -10,6 +10,12 @@ export default {
       }
     },
     extend: {
+      maxWidth: {
+        "26r": "26rem"
+      },
+      rounded: {
+        "2r": "2rem"
+      },
       fontFamily: {
         kalameh: ["KalamehWeb", "Tahoma", "sens-serif"]
       },
