@@ -118,15 +118,15 @@
   }
 
   .background {
-    @apply absolute -bottom-[1vw] -right-[4vw] left-[-4vw] w-full;
+    @apply absolute -bottom-[1vw] w-full min-w-[1024px] lg:-right-[4vw] lg:left-[-4vw] lg:min-w-[auto];
   }
 
   .foreground {
-    @apply absolute -bottom-[3vw] z-50 w-full;
+    @apply absolute -bottom-[3vw] z-50 w-full min-w-[1024px] lg:min-w-[auto];
   }
 
   .father-and-child {
-    @apply absolute bottom-[3.8vw] z-50 ml-[3.5vw] w-[10vw];
+    @apply absolute bottom-[calc(40px+2.5vw)] z-50 ml-[3.5vw] w-[10vw] min-w-[104px] sm:bottom-[44px] md:bottom-[42px] lg:bottom-[3.8vw];
   }
 
   .cloud-reverse {
@@ -134,11 +134,11 @@
   }
 
   .cloud-up-to-bottom {
-    @apply absolute -top-[max(1vw,1rem)] left-0 z-30 w-[max(40vw,30rem)] rotate-3;
+    @apply absolute -left-2/4 -top-[max(1vw,1rem)] z-30 w-[max(40vw,30rem)] rotate-3 md:left-0;
   }
 
   .cloud-3 {
-    @apply absolute -left-[max(5vw,16rem)] top-[5vw] z-30 w-[max(40vw,30rem)];
+    @apply absolute -left-[15%] top-1/4 z-30 max-w-96 lg:-left-[max(5vw,16rem)] lg:top-[5vw] lg:w-[max(40vw,30rem)];
   }
 
   .cloud {
@@ -150,6 +150,6 @@
   }
 
   .cloud-right-to-bottom {
-    @apply absolute -right-[10vw] bottom-[25vw] w-[50vw];
+    @apply absolute -right-[10vw]  w-[50vw] lg:bottom-[25vw];
   }
 </style>

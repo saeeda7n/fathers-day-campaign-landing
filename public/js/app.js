@@ -247,13 +247,13 @@ function gsapAnimation() {
       .fromTo(
         "#header",
         { opacity: 0, backgroundColor: "rgba(0,0,0,0.2)" },
-        { opacity: 1, duration, backgroundColor: "rgba(255,255,255,0.5)" },
-        0,
+        { opacity: 1, duration: 1, backgroundColor: "rgba(255,255,255,0.5)" },
+        1,
       )
       .to(".ct-welcome", { opacity: 0, duration: 0.8 }, 0)
       .fromTo(
         ".father-and-child",
-        { scale: 40 },
+        { scale: 42 },
         {
           ease,
           scale: 1,
@@ -366,8 +366,8 @@ function gsapAnimation() {
       .fromTo(
         "#header",
         { opacity: 0, backgroundColor: "rgba(0,0,0,0.2)" },
-        { opacity: 1, duration, backgroundColor: "rgba(255,255,255,0.5)" },
-        0,
+        { opacity: 1, duration: 1, backgroundColor: "rgba(255,255,255,0.5)" },
+        1,
       )
       .to(".ct-welcome", { opacity: 0, duration: 0.8 }, 0)
       .fromTo(
@@ -383,7 +383,7 @@ function gsapAnimation() {
       )
       .fromTo(
         ".moon",
-        { yPercent: 100 },
+        { yPercent: -600 },
         {
           yPercent: 0,
           duration,
@@ -394,9 +394,9 @@ function gsapAnimation() {
       .fromTo(".stars", { yPercent: -100 }, { yPercent: 0, duration, ease }, 0)
       .fromTo(
         ".cloud",
-        { xPercent: -100 },
+        { xPercent: -400 },
         {
-          xPercent: 0,
+          xPercent: 40,
           duration,
           ease,
         },
@@ -438,7 +438,7 @@ function gsapAnimation() {
       )
       .fromTo(
         ".cloud-3",
-        { xPercent: -100 },
+        { xPercent: -200 },
         {
           xPercent: 0,
           duration,
@@ -460,9 +460,9 @@ function gsapAnimation() {
       )
       .fromTo(
         ".cloud-right-to-bottom",
-        { xPercent: 30, yPercent: 30 },
+        { xPercent: 130, yPercent: 0 },
         {
-          xPercent: 0,
+          xPercent: -20,
           yPercent: 0,
           duration,
           ease,
