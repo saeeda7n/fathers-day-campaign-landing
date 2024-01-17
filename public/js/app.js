@@ -246,7 +246,7 @@ function gsapAnimation() {
       { opacity: 1, duration, backgroundColor: "rgba(255,255,255,0.5)" },
       0,
     )
-    .to(".ct-welcome", { opacity: 0, duration: 0.2 }, 0)
+    .to(".ct-welcome", { opacity: 0, duration: 0.8 }, 0)
     .fromTo(
       ".father-and-child",
       { scale: 40 },
