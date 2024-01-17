@@ -222,6 +222,7 @@ window.addEventListener("load", () => {
   gsapAnimation();
 
   const loading = document.getElementById("loading");
+  document.getElementsByTagName("body")[0].classList.remove("overflow-hidden");
   loading.classList.remove("bg-black");
   loading.querySelector(".loading-text").style.opacity = "0";
 });
