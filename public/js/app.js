@@ -353,6 +353,11 @@ function gsapAnimation() {
           transformOrigin: "center center",
         },
         0,
+      )
+      .fromTo(
+        ".dialog",
+        { opacity: 0, yPercent: 100 },
+        { opacity: 1, yPercent: 0, duration: 0.2 },
       );
   });
   matchMedia.add("(max-width: 1023px)", () => {
@@ -475,6 +480,11 @@ function gsapAnimation() {
           transformOrigin: "center center",
         },
         0,
+      )
+      .fromTo(
+        ".dialog",
+        { opacity: 0, yPercent: 100 },
+        { opacity: 1, yPercent: 0, duration: 0.2 },
       );
   });
 }
