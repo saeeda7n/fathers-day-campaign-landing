@@ -253,7 +253,10 @@ function gsapAnimation() {
       .to(".ct-welcome", { opacity: 0, duration: 0.8 }, 0)
       .fromTo(
         ".father-and-child",
-        { scale: 42 },
+        {
+          scale: 42,
+          transformOrigin: "28% 25%",
+        },
         {
           ease,
           scale: 1,
@@ -372,7 +375,10 @@ function gsapAnimation() {
       .to(".ct-welcome", { opacity: 0, duration: 0.8 }, 0)
       .fromTo(
         ".father-and-child",
-        { scale: 60 },
+        {
+          scale: 60,
+          transformOrigin: "28% 35%",
+        },
         {
           ease: "power1.out",
           scale: 1,
