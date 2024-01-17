@@ -43,7 +43,7 @@ window.addEventListener("load", () => {
     });
   });
 
-  let videoSwiper = new Swiper(".video-slider", {
+  new Swiper(".video-slider", {
     spaceBetween: 25,
     slidesPerGroup: 6,
     slidesPerView: 6,
@@ -80,7 +80,7 @@ window.addEventListener("load", () => {
     },
   });
 
-  let audioSwiper = new Swiper(".audio-slider", {
+  new Swiper(".audio-slider", {
     spaceBetween: 25,
     slidesPerGroup: 4,
     slidesPerView: 4,
@@ -117,7 +117,7 @@ window.addEventListener("load", () => {
     const createVideoButton = document.getElementById("createVideoButton");
 
     if (!createVideoForm) return;
-    createVideoForm.addEventListener("change", (e) => {
+    createVideoForm.addEventListener("change", () => {
       const { video, audio } = createVideoForm;
       if ([video.value, audio.value].includes("")) {
         createVideoButton.disabled = true;
@@ -131,7 +131,7 @@ window.addEventListener("load", () => {
 
   const copyReferalCode = document.getElementById("copyReferalCode");
   if (copyReferalCode) {
-    copyReferalCode.addEventListener("click", (e) => {
+    copyReferalCode.addEventListener("click", () => {
       const code = copyReferalCode.getAttribute("data-code");
       navigator.clipboard.writeText(code);
       alert("کد زیر مجموعه گیری با موفقیت کپی شد");
@@ -159,7 +159,6 @@ window.addEventListener("load", () => {
     });
     inputs.addEventListener("keyup", (e) => {
       const { target, key } = e;
-      const { value } = target;
       if (["delete", "backspace"].includes(key.toLowerCase())) {
         target.previousElementSibling.focus();
         target.previousElementSibling.select();
