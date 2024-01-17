@@ -238,6 +238,7 @@ function gsapAnimation() {
         trigger: ".hero-section",
         scrub: 1,
         pinSpacing: true,
+        end: "+=2000",
       },
     })
     .fromTo(
@@ -268,6 +269,7 @@ function gsapAnimation() {
       },
       0,
     )
+    .fromTo(".stars", { yPercent: -100 }, { yPercent: 0, duration, ease }, 0)
     .fromTo(
       ".cloud",
       { xPercent: -100 },
