@@ -5,8 +5,11 @@ window.addEventListener("load", () => {
   if (!points || !gameBox) return;
   gameBox.addEventListener("click", async (e) => {
     const _points = +points.innerText;
-    if (!_points)
-      return alert("شما امتیاز کافی برای باز کردن جعبه های شانس ندارید!");
+    if (!_points) {
+      const dialog = document.getElementById("dialog");
+      dialog.classList.add("open");
+      return;
+    }
 
     // if (![...e.target.classList].includes("mystery-box")) return;
     if (!e.target.classList.contains("mystery-box")) return;

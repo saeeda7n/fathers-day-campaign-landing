@@ -8,6 +8,27 @@ window.addEventListener("load", () => {
   }
 
   requestAnimationFrame(raf);
+
+  const referCodeDialog = document.getElementById("copyReferalCodeDialog");
+  const successCopyText = document.getElementById("successCopyText");
+  if (referCodeDialog && referCodeDialog) {
+    referCodeDialog.addEventListener("click", () => {
+      navigator.clipboard
+        .writeText(referCodeDialog.getAttribute("data-code"))
+        .then(() => {
+          successCopyText.classList.remove("hidden");
+          setTimeout(() => successCopyText.classList.add("hidden"), 3000);
+        });
+    });
+  }
+
+  const dialog = document.getElementById("dialog");
+  const closeDialog = document.getElementById("close-dialog");
+  closeDialog &&
+    closeDialog.addEventListener("click", () => {
+      dialog.classList.remove("open");
+    });
+
   let swiper = new Swiper(".post-card-slider", {
     slidesPerView: "auto",
     spaceBetween: 30,

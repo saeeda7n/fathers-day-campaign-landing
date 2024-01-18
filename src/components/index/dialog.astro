@@ -1,0 +1,72 @@
+---
+import ClipboardIcon from "../icons/clipboardIcon.astro";
+---
+
+<div
+  id="dialog"
+  style="z-index: 9999999"
+  class="fixed inset-0 hidden items-center justify-center overflow-y-auto bg-gray-50/50 px-10 py-10 backdrop-blur"
+>
+  <div
+    class="relative my-auto flex min-h-32 w-full max-w-md flex-col items-center rounded-2xl border bg-white px-8 py-8 sm:w-auto sm:min-w-72"
+  >
+    <div class="flex w-full">
+      <button
+        id="close-dialog"
+        class="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-xl bg-black/20 pt-1 text-2xl"
+      >
+        ×
+      </button>
+    </div>
+    <div class="mt-10 flex flex-col gap-3">
+      <h3 class="text-2xl font-semibold text-gray-950">
+        شانس خود را افزاریش دهید
+      </h3>
+      <p class="text-gray-950">
+        شما شانس کافی برای باز کردن جعبه های دیگر را ندارید در صورت دعوت از
+        دوستان خود شانس خود را بیشتر کنید
+      </p>
+    </div>
+
+    <div class="flex w-full flex-col gap-0">
+      <div
+        class="mb-5 mt-10 flex w-full items-center gap-3 text-sm text-gray-950 sm:text-base"
+      >
+        <span>کد عضویت شما</span>
+        <button
+          id="copyReferalCodeDialog"
+          data-code="referal-code-here-123456"
+          class="flex h-8 items-center gap-2 rounded-full bg-gray-300 px-3"
+        >
+          <span class="pt-1">123456</span>
+          <span class="invert">
+            <ClipboardIcon />
+          </span>
+        </button>
+      </div>
+      <p
+        id="successCopyText"
+        class="hidden rounded-xl rounded-br-none bg-blue-900 px-3 py-2 font-light"
+      >
+        با موفقیت کپی شد کافیست آن را از طریق پیامک یا شبکه های اجتماعی برای
+        دوستان خود ارسال کنید
+      </p>
+    </div>
+
+    <div class="mt-10 flex w-full flex-col gap-3">
+      <h3 class="text-2xl font-semibold text-gray-950">
+        مبلغ به سی تی بن شما اضافه شد
+      </h3>
+      <p class="text-gray-950">مبلغ واریز شده: 100,215,211 هزار تومان</p>
+    </div>
+
+    <div class="mt-10 w-full">
+      <a
+        href="#"
+        class="text flex h-12 items-center justify-center rounded-xl border-2 border-transparent bg-primary text-base font-semibold text-gray-50 transition-all duration-200 hover:border-primary hover:bg-gray-50 hover:text-primary md:h-16 md:text-xl"
+      >
+        مشاهده کیف پول
+      </a>
+    </div>
+  </div>
+</div>

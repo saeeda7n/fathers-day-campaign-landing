@@ -8,7 +8,7 @@ const { filter } = Astro.props;
 ---
 
 <div
-  class="swiper-slide rounded-2r flex w-64 select-none flex-col gap-3 border p-4 lg:w-[315px] lg:p-5"
+  class="swiper-slide flex w-64 select-none flex-col gap-3 rounded-2r border p-4 lg:w-[315px] lg:p-5"
   data-filter-value={filter}
 >
   <img
@@ -39,7 +39,7 @@ const { filter } = Astro.props;
   <div class="h-0.5 bg-gray-50/50"></div>
   <div class="flex gap-5">
     <a
-      href="/editCard?image_id=IMAGE_ID"
+      href="/editPostCard?image_id=IMAGE_ID"
       class="flex h-16 flex-1 items-center justify-center rounded-xl rounded-br-3xl bg-primary text-gray-50"
     >
       تایید و مرحله بعد

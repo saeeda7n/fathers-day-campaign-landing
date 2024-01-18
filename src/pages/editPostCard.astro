@@ -1,0 +1,96 @@
+---
+import Default from "../layouts/default.astro";
+import HtmlLayout from "../layouts/htmlLayout.astro";
+import ArrowRightIcon from "../components/icons/arrowRightIcon.astro";
+import VideoIcon from "../components/icons/videoIcon.astro";
+import InfoIcon from "../components/icons/infoIcon.astro";
+import DownloadIcon from "../components/icons/downloadIcon.astro";
+import PlayIcon from "../components/icons/playIcon.astro";
+import PauseIcon from "../components/icons/pauseIcon.astro";
+---
+
+<HtmlLayout>
+  <Default>
+    <section class="flex pb-16 pt-20 text-gray-50 sm:pt-36">
+      <div class="container flex flex-col gap-8 sm:gap-16">
+        <div class="flex flex-wrap items-center gap-4">
+          <a
+            href="/"
+            class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/20"
+          >
+            <ArrowRightIcon />
+          </a>
+          <div class="flex items-center gap-2">
+            <VideoIcon />
+            <h2 class="text-xl font-semibold md:text-2xl">ساخت کارت پستال</h2>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-col items-center gap-5 md:flex-row xl:gap-16">
+            <div class="flex w-full max-w-26r flex-1 md:mr-auto md:min-h-full">
+              <form
+                class="flex min-w-full flex-col gap-8 rounded-2xl bg-white/10 px-8 py-12"
+                action="#"
+              >
+                <input hidden="hidden" name="video_id" value="0" />
+                <input hidden="hidden" name="audio_id" value="0" />
+                <input hidden="hidden" name="image_id" value="0" />
+
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold md:text-2xl">
+                    وارد کردن اطلاعات
+                  </h3>
+                  <div class="flex items-center gap-2">
+                    <InfoIcon />
+                    <span class="text-xs font-light md:text-base"
+                      >لطفا اطلاعات زیر را با دقت وارد کنید</span
+                    >
+                  </div>
+                </div>
+
+                <div class="flex flex-col">
+                  <label class="flex flex-col gap-1.5">
+                    نام پدر
+                    <input
+                      name="father_name"
+                      placeholder="نام پدر شما"
+                      class="flex h-16 items-center rounded-xl bg-white/10 px-5 text-xl"
+                    />
+                  </label>
+                </div>
+                <div class="flex flex-col">
+                  <label class="flex flex-col gap-1.5">
+                    نام شما
+                    <input
+                      name="name"
+                      placeholder="نام نمایشی شما"
+                      class="flex h-16 items-center rounded-xl bg-white/10 px-5 text-xl"
+                    />
+                  </label>
+                </div>
+
+                <div class="mt-auto flex items-center">
+                  <button
+                    type="submit"
+                    id="createVideoButton"
+                    class="mr-auto flex h-14 w-full items-center justify-center gap-3 rounded-2xl bg-primary px-8 text-lg sm:h-16 sm:min-w-72 sm:px-10 sm:text-xl"
+                  >
+                    <DownloadIcon />
+                    ایجاد و دانلود
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="max-w-26r flex-1 space-y-5 md:ml-auto">
+              <img
+                src="/images/post-card-preview.png"
+                alt="Post card preview"
+                class="w-full rounded-3xl"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </Default>
+</HtmlLayout>
