@@ -252,260 +252,160 @@ function gsapAnimation() {
   if (!document.getElementById("loading")) return;
   const duration = 2;
   const ease = "";
-
   const matchMedia = gsap.matchMedia();
-  matchMedia.add("(min-width: 1024px)", () => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          pin: true,
-          trigger: ".hero-section",
-          scrub: 1,
-          pinSpacing: true,
-          end: "+=2000",
-        },
-      })
-      .fromTo(
-        "#header",
-        { opacity: 0, backgroundColor: "rgba(0,0,0,0.2)" },
-        { opacity: 1, duration: 1, backgroundColor: "rgba(255,255,255,0.5)" },
-        1,
-      )
-      .to(".ct-welcome", { opacity: 0, duration: 0.8 }, 0)
-      .fromTo(
-        ".father-and-child",
-        {
-          scale: 42,
-          transformOrigin: "28% 25%",
-        },
-        {
-          ease,
-          scale: 1,
-          duration,
-          transformOrigin: "28% 25%",
-        },
-        0,
-      )
-      .fromTo(
-        ".moon",
-        { yPercent: 100 },
-        {
-          yPercent: 0,
-          duration,
-          ease,
-        },
-        0,
-      )
-      .fromTo(".stars", { yPercent: -100 }, { yPercent: 0, duration, ease }, 0)
-      .fromTo(
-        ".cloud",
-        { xPercent: -100 },
-        {
-          xPercent: 0,
-          duration,
-          ease,
-        },
-        0,
-      )
-      .fromTo(
-        ".foreground",
-        { scale: 1.5 },
-        {
-          scale: 1,
-          duration,
-          transformOrigin: "bottom center",
-          ease,
-        },
-        0,
-      )
-      .fromTo(
-        ".background",
-        { yPercent: -40, scale: 2 },
-        {
-          yPercent: 0,
-          duration,
-          scale: 1,
-          transformOrigin: "center center",
-          ease,
-        },
-        0,
-      )
-      .fromTo(
-        ".cloud-up-to-bottom",
-        { xPercent: -100, yPercent: -100 },
-        {
-          duration,
-          xPercent: 0,
-          yPercent: 0,
-          ease,
-        },
-        0,
-      )
-      .fromTo(
-        ".cloud-3",
-        { xPercent: -100 },
-        {
-          xPercent: 0,
-          duration,
-          ease,
-        },
-        0,
-      )
-      .fromTo(
-        ".cloud-reverse",
-        { xPercent: 100, yPercent: -100 },
-        {
-          xPercent: 0,
-          yPercent: 0,
-          duration,
-          ease,
-          transformOrigin: "center center",
-        },
-        0,
-      )
-      .fromTo(
-        ".cloud-right-to-bottom",
-        { xPercent: 30, yPercent: 30 },
-        {
-          xPercent: 0,
-          yPercent: 0,
-          duration,
-          ease,
-          transformOrigin: "center center",
-        },
-        0,
-      )
-      .fromTo(
-        ".dialog",
-        { opacity: 0, yPercent: 100 },
-        { opacity: 1, yPercent: 0, duration: 0.2 },
-      );
-  });
-  matchMedia.add("(max-width: 1023px)", () => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          pin: true,
-          trigger: ".hero-section",
-          scrub: 1,
-          pinSpacing: true,
-          end: "+=2000",
-        },
-      })
-      .fromTo(
-        "#header",
-        { opacity: 0, backgroundColor: "rgba(0,0,0,0.2)" },
-        { opacity: 1, duration: 1, backgroundColor: "rgba(255,255,255,0.5)" },
-        1,
-      )
-      .to(".ct-welcome", { opacity: 0, duration: 0.8 }, 0)
-      .fromTo(
-        ".father-and-child",
-        {
-          scale: 60,
-          transformOrigin: "28% 35%",
-        },
-        {
-          ease: "power1.out",
-          scale: 1,
-          duration,
-          transformOrigin: "28% 35%",
-        },
-        0,
-      )
-      .fromTo(
-        ".moon",
-        { yPercent: -600 },
-        {
-          yPercent: 0,
-          duration,
-          ease,
-        },
-        0,
-      )
-      .fromTo(".stars", { yPercent: -100 }, { yPercent: 0, duration, ease }, 0)
-      .fromTo(
-        ".cloud",
-        { xPercent: -400 },
-        {
-          xPercent: 40,
-          duration,
-          ease,
-        },
-        0,
-      )
-      .fromTo(
-        ".foreground",
-        { scale: 1.5 },
-        {
-          scale: 1,
-          duration,
-          transformOrigin: "bottom center",
-          ease,
-        },
-        0,
-      )
-      .fromTo(
-        ".background",
-        { yPercent: -40, scale: 2 },
-        {
-          yPercent: 0,
-          duration,
-          scale: 1,
-          transformOrigin: "center center",
-          ease,
-        },
-        0,
-      )
-      .fromTo(
-        ".cloud-up-to-bottom",
-        { xPercent: -100, yPercent: -100 },
-        {
-          duration,
-          xPercent: 0,
-          yPercent: 0,
-          ease,
-        },
-        0,
-      )
-      .fromTo(
-        ".cloud-3",
-        { xPercent: -200 },
-        {
-          xPercent: 0,
-          duration,
-          ease,
-        },
-        0,
-      )
-      .fromTo(
-        ".cloud-reverse",
-        { xPercent: 100, yPercent: -100 },
-        {
-          xPercent: 0,
-          yPercent: 0,
-          duration,
-          ease,
-          transformOrigin: "center center",
-        },
-        0,
-      )
-      .fromTo(
-        ".cloud-right-to-bottom",
-        { xPercent: 130, yPercent: 0 },
-        {
-          xPercent: -20,
-          yPercent: 0,
-          duration,
-          ease,
-          transformOrigin: "center center",
-        },
-        0,
-      )
-      .fromTo(
-        ".dialog",
-        { opacity: 0, yPercent: 100 },
-        { opacity: 1, yPercent: 0, duration: 0.2 },
-      );
-  });
+  matchMedia.add(
+    { desktop: "(min-width: 1024px)", mobile: "(max-width: 1023px)" },
+    (context) => {
+      const { mobile, desktop } = context.conditions;
+      const tl = gsap
+        .timeline({
+          scrollTrigger: {
+            pin: true,
+            trigger: ".hero-section",
+            scrub: 1,
+            pinSpacing: true,
+            end: "+=2000",
+          },
+        })
+        .fromTo(
+          "#header",
+          { opacity: 0, backgroundColor: "rgba(0,0,0,0.2)" },
+          { opacity: 1, duration: 1, backgroundColor: "rgba(255,255,255,0.5)" },
+          1,
+        )
+        .to(".ct-welcome", { opacity: 0, duration: 0.8 }, 0)
+
+        .fromTo(
+          ".moon",
+          { yPercent: mobile ? -600 : 100 },
+          {
+            yPercent: 0,
+            duration,
+            ease,
+          },
+          0,
+        )
+        .fromTo(
+          ".stars",
+          { yPercent: -100 },
+          { yPercent: 0, duration, ease },
+          0,
+        )
+        .fromTo(
+          ".cloud",
+          { xPercent: -100 },
+          {
+            xPercent: 0,
+            duration,
+            ease,
+          },
+          0,
+        )
+        .fromTo(
+          ".foreground",
+          { scale: 1.5 },
+          {
+            scale: 1,
+            duration,
+            transformOrigin: "bottom center",
+            ease,
+          },
+          0,
+        )
+        .fromTo(
+          ".background",
+          { yPercent: -40, scale: 2 },
+          {
+            yPercent: 0,
+            duration,
+            scale: 1,
+            transformOrigin: "center center",
+            ease,
+          },
+          0,
+        )
+        .fromTo(
+          ".cloud-up-to-bottom",
+          { xPercent: -100, yPercent: -100 },
+          {
+            duration,
+            xPercent: 0,
+            yPercent: 0,
+            ease,
+          },
+          0,
+        )
+        .fromTo(
+          ".cloud-3",
+          { xPercent: -100 },
+          {
+            xPercent: 0,
+            duration,
+            ease,
+          },
+          0,
+        )
+        .fromTo(
+          ".cloud-reverse",
+          { xPercent: 100, yPercent: -100 },
+          {
+            xPercent: 0,
+            yPercent: 0,
+            duration,
+            ease,
+            transformOrigin: "center center",
+          },
+          0,
+        )
+        .fromTo(
+          ".cloud-right-to-bottom",
+          { xPercent: 30, yPercent: 30 },
+          {
+            xPercent: 0,
+            yPercent: 0,
+            duration,
+            ease,
+            transformOrigin: "center center",
+          },
+          0,
+        )
+        .fromTo(
+          ".dialog",
+          { opacity: 0, yPercent: 100 },
+          { opacity: 1, yPercent: 0, duration: 0.2 },
+        );
+
+      if (mobile)
+        tl.fromTo(
+          ".father-and-child",
+          {
+            scale: 60,
+            transformOrigin: "28% 35%",
+          },
+          {
+            ease: "power1.out",
+            scale: 1,
+            duration,
+            transformOrigin: "28% 35%",
+          },
+          0,
+        );
+      else if (desktop) {
+        tl.fromTo(
+          ".father-and-child",
+          {
+            scale: 42,
+            transformOrigin: "28% 25%",
+          },
+          {
+            ease,
+            scale: 1,
+            duration,
+            transformOrigin: "28% 25%",
+          },
+          0,
+        );
+      }
+    },
+  );
 }
